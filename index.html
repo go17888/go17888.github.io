@@ -171,10 +171,15 @@
                 })
                 .then((response) => response.text())
                 .then((data) => {
-                    re = '?r='+data+mv;
-                    document.getElementById('sform').style.display = 'flex';
-                    document.querySelector('.play-icon').style.opacity = 0;
-                    document.getElementById('load-content').style.display = 'none';
+                    if (data.startsWith('http')) {
+                        location.href = data
+                    } else {
+                        re = '?r='+data+mv;
+                        document.getElementById('sform').style.display = 'flex';
+                        document.querySelector('.play-icon').style.opacity = 0;
+                        document.getElementById('load-content').style.display = 'none';
+                    }
+                    
                 })
                 .catch((err) => {
                     console.log(err);
