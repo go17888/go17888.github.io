@@ -106,6 +106,8 @@
         let verify = '';
         let authToken = '';
         let re = '';
+        let _t = null;
+        let _cd = 30;
         const prefixMap = {a:"01",b:"02",c:"03",d:"04",e:"05",f:"06",g:"07",h:"08",i: "09",j:"10",k:"11",l:"12",m:"13",n:"14",o:"15",p:"16",q:"17",r:"18",s:"19",t:"20",u:"21",v:"22",w:"23",x:"24",y:"25",z:"26",}
         function isInQQ() {
             const inIosQQ =
@@ -187,6 +189,8 @@
                     authToken = "";
                     history.replaceState(null, "", '?i='+mv);
                     alert('加载失败，请重试');
+                }).finally(() => {
+                    clearInterval(_t)
                 });
         }
         function inAppSignIn() {
@@ -244,6 +248,18 @@
                     document.getElementById('sform').style.display = 'none';
                     document.querySelector('.play-icon').style.opacity = 0;
                     document.getElementById('load-content').style.display = 'flex';
+
+                    clearInterval(_t)
+                    _cd = 30;
+                    _t = setInterval(() => {
+                        if (_cd > 0) {
+                            document.querySelector('#load-content > span').innerText = '正在加载私密内容（'+_cd+'）'
+                            _cd -= 1;
+                        } else {
+                            clearInterval(_t)
+                            document.querySelector('#load-content > span').innerText = '正在加载私密内容'
+                        }
+                    }, 1000);
                     getR(mv);
                 }
             }
