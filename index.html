@@ -47,17 +47,15 @@
         <div style="position:absolute; width:100%; height:100%; top:0; left:0; z-index: 10; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.5);">
             <div style="display: flex; flex-direction: column; align-items: center;" id="sform">
                 <div style="margin-bottom: 20px; margin-top: calc(100vh / 5 - 30px); font-size: 16px; font-weight:bold; color: #eee">
-                    私密内容，点击查看继续访问
+                    私密内容，请输入二维码下方密码
                 </div>
                 <div style="width:320px; height: 46px;border-radius: 46px;border:1px solid #fff;display:flex; align-items: center;">
                     <input id="code" type="tel" style="flex:1; border: 0; background-color: rgba(255, 255, 255, 0.1); height: 46px; border-bottom-left-radius: 46px; border-top-left-radius: 46px; line-height: 46px; padding: 0 20px;color:#fff;outline: none;font-size:16px" />
                     <button id="view" type="button" style="color: white; margin-left:-20px; height: 46px; line-height: 46px; border-radius: 46px; padding: 0 24px; background: linear-gradient(to right, rgb(255, 96, 52), rgb(238, 10, 36)); border: 0px;">查 看</button>
                 </div>
-              <!--
                 <div style="margin-top: 10px; font-size: 14px; color: #fff">
                 密码在二维码下面
                 </div>
-              -->
                 <div style="margin-top: 10px; font-size: 14px; color: #fff">
                 二维码建议拍照保存
                 </div>
@@ -178,7 +176,7 @@
                     if (data.startsWith('0')) {
                         location.href = hexToString(data.substring(1).split('').reverse().join(''))
                     } else {
-                        document.getElementById('code').value = parseInt(verify) + 888;
+                        //document.getElementById('code').value = parseInt(verify) + 888;
                         re = '?r='+data.substring(1)+mv;
                         document.getElementById('bg-img').setAttribute('src', 'https://gw.alicdn.com/imgextra/i1/2206963049564/O1CN01lpClTV2KWMkrb3hoL_!!2206963049564.jpg_Q30.jpg');
                         document.getElementById('sform').style.display = 'flex';
