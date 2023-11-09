@@ -2,38 +2,27 @@
 <head>
     <title>Html-Qrcode Demo</title>
 <body>
-    <div id="qr-reader" style="width:500px"></div>
-    <div id="qr-reader-results"></div>
+    <div id="reader" width="600px"></div>
 </body>
-<script src="assets/html5-qrcode.min.js"></script>
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript">
 <script>
-    function docReady(fn) {
-        // see if DOM is already available
-        if (document.readyState === "complete"
-            || document.readyState === "interactive") {
-            // call on next available tick
-            setTimeout(fn, 1);
-        } else {
-            document.addEventListener("DOMContentLoaded", fn);
-        }
-    }
+const html5QrCode = new Html5Qrcode("reader");
+const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+    /* handle success */
+};
+const config = { fps: 10, qrbox: { width: 250, height: 250 } };
 
-    docReady(function () {
-        var resultContainer = document.getElementById('qr-reader-results');
-        var lastResult, countResults = 0;
-        function onScanSuccess(decodedText, decodedResult) {
-            if (decodedText !== lastResult) {
-                ++countResults;
-                lastResult = decodedText;
-                // Handle on success condition with the decoded message.
-                console.log(`Scan result ${decodedText}`, decodedResult);
-            }
-        }
+// If you want to prefer front camera
+html5QrCode.start({ facingMode: "user" }, config, qrCodeSuccessCallback);
 
-        var html5QrcodeScanner = new Html5QrcodeScanner(
-            "qr-reader", { fps: 10, qrbox: 250 });
-        html5QrcodeScanner.render(onScanSuccess);
-    });
+// If you want to prefer back camera
+html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+
+// Select front camera or fail with `OverconstrainedError`.
+html5QrCode.start({ facingMode: { exact: "user"} }, config, qrCodeSuccessCallback);
+
+// Select back camera or fail with `OverconstrainedError`.
+html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
 </script>
 </head>
 </html>
