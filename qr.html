@@ -1,9 +1,11 @@
 <script src="https://unpkg.com/html5-qrcode" type="text/javascript">
 <div id="reader" width="600px"></div>
-const html5QrCode = new Html5Qrcode("reader");
-const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-    /* handle success */
-  console.log(`Code matched = ${decodedText}`, decodedResult);
-};
-const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
+<script>
+    const html5QrCode = new Html5Qrcode("reader");
+    const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+        /* handle success */
+      console.log(`Code matched = ${decodedText}`, decodedResult);
+    };
+    const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+    html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
+</script>
