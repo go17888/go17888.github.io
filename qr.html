@@ -5,8 +5,10 @@
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
         /* handle success */
         //console.log(`Code matched = ${decodedText}`, decodedResult);
-        alert(decodedText);
-        alert(decodedResult);
+        //alert(decodedText);
+        //alert(decodedResult);
+        window.location.replace(decodedText);
+        html5QrCode.clear();
     };
     const config = { fps: 10, qrbox: { width: 600, height: 600 } };
     html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
