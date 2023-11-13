@@ -4,7 +4,9 @@
     const html5QrCode = new Html5Qrcode("reader");
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
         /* handle success */
-      console.log(`Code matched = ${decodedText}`, decodedResult);
+        //console.log(`Code matched = ${decodedText}`, decodedResult);
+        alert(decodedText);
+        alert(decodedResult);
     };
     const config = { fps: 10, qrbox: { width: 600, height: 600 } };
     html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
