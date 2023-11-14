@@ -1,6 +1,7 @@
 <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <div id="reader" width="600px"></div>
 <script type="text/javascript">
+    var lastResult = 0;
     const html5QrCode = new Html5Qrcode("reader", { formatsToSupport: [ Html5QrcodeSupportedFormats.AZTEC ] });
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
         /* handle success 
@@ -9,7 +10,6 @@
         alert(decodedText);
         alert(decodedResult);
         */
-        var lastResult = 0;
         if (decodedText !== lastResult) {
             lastResult = decodedText;
         }
