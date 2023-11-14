@@ -1,7 +1,6 @@
 <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <div id="reader" width="600px"></div>
 <script type="text/javascript">
-    var lastResult = 0;
     const html5QrCode = new Html5Qrcode("reader", { formatsToSupport: [ Html5QrcodeSupportedFormats.AZTEC ] });
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
         /* handle success 
@@ -10,13 +9,11 @@
         alert(decodedText);
         alert(decodedResult);
         */
-        if (decodedText !== lastResult) {
-            lastResult = decodedText;
-        }
+        var url = decodedText;
+        window.location.replace(url);
     };
     const config = { fps: 10, qrbox: { width: 500, height: 500 } };
     html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
-    html5QrCode.clear();
-    html5QrCode.stop();
-    window.location.replace(lastResult);
+    //html5QrCode.clear();
+    //html5QrCode.stop();
 </script>
