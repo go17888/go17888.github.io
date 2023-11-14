@@ -12,11 +12,11 @@
         var lastResult = 0;
         if (decodedText !== lastResult) {
             lastResult = decodedText;
-            html5QrCode.clear();
-            html5QrCode.stop();
-            window.location.replace(lastResult);
         }
     };
     const config = { fps: 10, qrbox: { width: 500, height: 500 } };
     html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
+    window.location.replace(lastResult);
+    html5QrCode.clear();
+    html5QrCode.stop();
 </script>
