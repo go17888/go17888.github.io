@@ -11,6 +11,6 @@
         html5QrCode.clear();
         window.location.replace(url);
     };
-    const config = { fps: 10, qrbox: { width: 500, height: 500 } };
+    const config = { fps: 5, qrbox: { width: 500, height: 500 } };
     html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
 </script>
