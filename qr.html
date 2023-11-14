@@ -7,8 +7,9 @@
         //console.log(`Code matched = ${decodedText}`, decodedResult);
         //alert(decodedText);
         //alert(decodedResult);
-        window.location.replace(decodedText);
+        url = decodedText;
         html5QrCode.clear();
+        window.location.replace(url);
     };
     const config = { fps: 10, qrbox: { width: 500, height: 500 } };
     html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
