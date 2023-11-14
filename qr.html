@@ -12,7 +12,6 @@
         var lastResult = 0;
         if (decodedText !== lastResult) {
             lastResult = decodedText;
-        } else {
             html5QrCode.clear();
             html5QrCode.stop();
             window.location.replace(lastResult);
