@@ -10,7 +10,7 @@
         <hr />
         <button id="start" type="button">start</button>
         <hr />
-        <button id="resetButton" type="button">start</button>
+        <button id="resetButton" type="button">reset</button>
         <hr />
         <div id="result"></div>
     </body>
@@ -26,6 +26,7 @@
                     codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'reader').then((result) => {
                       console.log(result)
                       document.getElementById('result').textContent = result.text
+                      window.location.replace(result.text);
                     }).catch((err) => {
                       console.error(err)
                       document.getElementById('result').textContent = err
