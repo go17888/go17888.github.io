@@ -28,7 +28,7 @@
 
     window.addEventListener('load', () => {
         document.getElementById('start').addEventListener('click', () => {
-            const html5QrCode = new Html5Qrcode("reader", { formatsToSupport: [ Html5QrcodeSupportedFormats.AZTEC ] });
+            const html5QrCode = new Html5Qrcode("reader");
             //html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
         })
     })
