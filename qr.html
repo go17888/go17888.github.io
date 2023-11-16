@@ -1,9 +1,10 @@
 <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <div id="reader" width="600px"></div>
+<button id="start" type="button">start</button>
 <script type="text/javascript">
     const html5QrCode = new Html5Qrcode("reader", { formatsToSupport: [ Html5QrcodeSupportedFormats.AZTEC ] });
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-        /* handle success 
+        /* handle success
         /*
         console.log(`Code matched = ${decodedText}`, decodedResult);
         alert(decodedText);
@@ -13,7 +14,14 @@
         window.location.replace(url);
     };
     const config = { fps: 10, qrbox: { width: 500, height: 500 } };
-    html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+
+    window.addEventListener('load', () => {
+        document.getElementById('start').addEventListener('click', () => {
+            html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+        })
+    })
+
+
     //html5QrCode.clear();
     //html5QrCode.stop();
 </script>
