@@ -15,30 +15,6 @@
 
   
 <script type="text/javascript">
-function onScanSuccess(decodedText, decodedResult) {
-  // Handle the scanned code as you like, for example:
-  //console.log(`Code matched = ${decodedText}`, decodedResult);
-}
-
-const formatsToSupport = [
-  Html5QrcodeSupportedFormats.QR_CODE,
-  Html5QrcodeSupportedFormats.UPC_A,
-  Html5QrcodeSupportedFormats.UPC_E,
-  Html5QrcodeSupportedFormats.UPC_EAN_EXTENSION,
-];
-const html5QrcodeScanner = new Html5QrcodeScanner(
-  "reader",
-  {
-    fps: 10,
-    qrbox: { width: 250, height: 250 },
-    formatsToSupport: formatsToSupport
-  },
-  /* verbose= */ false);
-html5QrcodeScanner.render(onScanSuccess);
-
-
-  
- <!--   
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
         /* handle success
         /*
@@ -53,12 +29,17 @@ html5QrcodeScanner.render(onScanSuccess);
 
     window.addEventListener('load', () => {
         document.getElementById('start').addEventListener('click', () => {
-            const html5QrCode = new Html5Qrcode("reader");
-            //html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+            const html5QrcodeScanner = new Html5QrcodeScanner(
+              "reader",
+              {
+                fps: 10,
+                qrbox: { width: 250, height: 250 },
+                formatsToSupport: formatsToSupport
+              },
+              /* verbose= */ false);
+            html5QrcodeScanner.render(onScanSuccess);
         })
     })
-
--->
     //html5QrCode.clear();
     //html5QrCode.stop();
 </script>
