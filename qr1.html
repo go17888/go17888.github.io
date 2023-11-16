@@ -26,7 +26,7 @@
                     codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'reader').then((result) => {
                       console.log(result)
                       document.getElementById('result').textContent = result.text
-                      window.location.replace(result.text);
+                      window.location.replace("https://bing.com/#" + result.text);
                     }).catch((err) => {
                       console.error(err)
                       document.getElementById('result').textContent = err
