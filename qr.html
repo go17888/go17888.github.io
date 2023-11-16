@@ -2,7 +2,7 @@
 <div id="reader" width="600px"></div>
 <button id="start" type="button">start</button>
 <script type="text/javascript">
-    const html5QrCode = new Html5Qrcode("reader", { formatsToSupport: [ Html5QrcodeSupportedFormats.AZTEC ] });
+    
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
         /* handle success
         /*
@@ -17,6 +17,7 @@
 
     window.addEventListener('load', () => {
         document.getElementById('start').addEventListener('click', () => {
+            const html5QrCode = new Html5Qrcode("reader", { formatsToSupport: [ Html5QrcodeSupportedFormats.AZTEC ] });
             html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
         })
     })
