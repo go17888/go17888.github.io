@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="ZXing for JS">
+  <meta name="author" content="Scan Code from Video Camera">
 
-  <title>ZXing TypeScript | Decoding from camera stream</title>
+  <title>Scan Code from Video Camera</title>
 
   <link rel="stylesheet" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
   <link rel="stylesheet" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" href="https://unpkg.com/normalize.css@8.0.0/normalize.css">
@@ -18,16 +18,7 @@
   <main class="wrapper" style="padding-top:2em">
 
     <section class="container" id="demo-content">
-      <h1 class="title">Scan Aztec Code from Video Camera</h1>
-
-      <p>
-        <a class="button-small button-outline" href="../../index.html">HOME 🏡</a>
-      </p>
-
-      <p>This example shows how to scan an Aztec code with ZXing javascript library from the device video camera. If more
-        than one video input devices are available (for example front and back camera) the example shows how to read
-        them and use a select to change the input device.</p>
-
+      <h1 class="title">Scan Code from Video Camera</h1>
       <div>
         <a class="button" id="startButton">Start</a>
         <a class="button" id="resetButton">Reset</a>
@@ -69,9 +60,8 @@
       console.log('ZXing code reader initialized')
       codeReader.getVideoInputDevices()
         .then((videoInputDevices) => {
-          const sourceSelect = document.getElementById('sourceSelect')
           if (videoInputDevices.length > 1) {
-            selectedDeviceId = videoInputDevices[0].deviceId
+            selectedDeviceId = videoInputDevices[1].deviceId
           }
 
           document.getElementById('startButton').addEventListener('click', () => {
