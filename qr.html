@@ -13,7 +13,7 @@
         window.location.replace(url);
     };
     const config = { fps: 10, qrbox: { width: 500, height: 500 } };
-    html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
+    html5QrCode.start({ facingMode: "environment", config, qrCodeSuccessCallback);
     alert(url);
     //html5QrCode.clear();
     //html5QrCode.stop();
