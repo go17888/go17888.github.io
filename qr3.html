@@ -19,30 +19,28 @@
             document.getElementById('start').addEventListener('click', () => {
                 const codeReader = new ZXing.BrowserAztecCodeReader();
                 codeReader.getVideoInputDevices()
-                .then((videoInputDevices) => {
-                  selectedDeviceId = videoInputDevices[1].deviceId
-
-                  document.getElementById('start').addEventListener('click', () => {
-                    codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'reader').then((result) => {
-                      console.log(result)
-                      document.getElementById('result').textContent = result.text
-                    }).catch((err) => {
-                      console.error(err)
-                      document.getElementById('result').textContent = err
+                    .then((videoInputDevices) => {
+                        selectedDeviceId = videoInputDevices[1].deviceId
+        
+                        codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'reader').then((result) => {
+                            console.log(result)
+                            document.getElementById('result').textContent = result.text
+                        }).catch((err) => {
+                            console.error(err)
+                            document.getElementById('result').textContent = err
+                        })
+                        console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
+        
+                        document.getElementById('resetButton').addEventListener('click', () => {
+                            codeReader.reset()
+                            document.getElementById('result').textContent = '';
+                            console.log('Reset.')
+                        })
+        
                     })
-                    console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
-                  })
-
-                  document.getElementById('resetButton').addEventListener('click', () => {
-                    codeReader.reset()
-                    document.getElementById('result').textContent = '';
-                    console.log('Reset.')
-                  })
-
-                })
-                .catch((err) => {
-                  console.error(err)
-                })
+                    .catch((err) => {
+                        console.error(err)
+                    })
             })
         })
     </script>
