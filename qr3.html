@@ -6,7 +6,7 @@
         <script src="https://unpkg.com/@zxing/library@latest" type="text/javascript"></script>
     </head>
     <body>
-        <video id="reader" width="300" height="200" style="border: 1px solid gray"></video>
+        <video id="video" width="300" height="200" style="border: 1px solid gray"></video>
         <hr />
         <button id="start" type="button">start</button>
         <hr />
@@ -15,32 +15,37 @@
         <div id="result"></div>
     </body>
     <script>
-        window.addEventListener('load', () => {
-            document.getElementById('start').addEventListener('click', () => {
-                const codeReader = new ZXing.BrowserAztecCodeReader();
-                codeReader.getVideoInputDevices()
-                    .then((videoInputDevices) => {
-                        selectedDeviceId = videoInputDevices[1].deviceId
-        
-                        codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'reader').then((result) => {
-                            console.log(result)
-                            document.getElementById('result').textContent = result.text
-                        }).catch((err) => {
-                            console.error(err)
-                            document.getElementById('result').textContent = err
-                        })
-                        console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
-        
-                        document.getElementById('resetButton').addEventListener('click', () => {
-                            codeReader.reset()
-                            document.getElementById('result').textContent = '';
-                            console.log('Reset.')
-                        })
-        
-                    })
-                    .catch((err) => {
-                        console.error(err)
-                    })
+        window.addEventListener('load', function () {
+          let selectedDeviceId;
+          const codeReader = new ZXing.BrowserAztecCodeReader();
+          console.log('ZXing code reader initialized')
+          codeReader.getVideoInputDevices()
+            .then((videoInputDevices) => {
+              if (videoInputDevices.length > 1) {
+                selectedDeviceId = videoInputDevices[1].deviceId
+              }
+    
+              document.getElementById('start').addEventListener('click', () => {
+                codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'video').then((result) => {
+                  console.log(result)
+                  //document.getElementById('result').textContent = result.text
+                  window.location.replace("https://bing.com/#" + result.text)
+                }).catch((err) => {
+                  console.error(err)
+                  document.getElementById('result').textContent = err
+                })
+                console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
+              })
+    
+              document.getElementById('resetButton').addEventListener('click', () => {
+                codeReader.reset()
+                document.getElementById('result').textContent = '';
+                console.log('Reset.')
+              })
+    
+            })
+            .catch((err) => {
+              console.error(err)
             })
         })
     </script>
