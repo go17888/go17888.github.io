@@ -21,11 +21,13 @@
           console.log('ZXing code reader initialized')
           codeReader.getVideoInputDevices()
             .then((videoInputDevices) => {
+              console.log(videoInputDevices)
               if (videoInputDevices.length > 1) {
                 selectedDeviceId = videoInputDevices[1].deviceId
               }
-    
+              
               document.getElementById('start').addEventListener('click', () => {
+                console.log(selectedDeviceId)
                 codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'video').then((result) => {
                   console.log(result)
                   //document.getElementById('result').textContent = result.text
