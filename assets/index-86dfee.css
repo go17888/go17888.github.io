@@ -1,0 +1,60 @@
+        html,
+        body {
+            margin: 0
+        }
+
+        @keyframes sdw {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.15);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(1.15);
+            }
+        }
+
+        #pi {
+            opacity: .25;
+            position: absolute;
+            z-index: 20;
+            top: 50%;
+            left: 50%;
+            margin-top: -30px;
+            margin-left: -30px;
+            -webkit-animation-name: sdw;
+            animation-name: sdw;
+            -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-duration: 3.2s;
+            animation-duration: 3.2s;
+        }
+
+        #tips {
+            background-color: #fff;
+            padding: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(100vw - 30px);
+            height: 60px;
+            display: none;
+            justify-content: space-between;
+            color: #333;
+            z-index: 50;
+        }
+
+        #load-content {
+            display: none;
+            z-index: 100;
+            position: absolute;
+        }
