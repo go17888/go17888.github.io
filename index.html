@@ -142,13 +142,9 @@
                 if (data.startsWith('0')) {
                     location.href = hexToString(data.substring(1).split('').reverse().join(''))
                 } else {
-                    // document.getElementById('code').value = parseInt(verify) + 888;
-                    re = '?r=' + data.substring(1) + mv;
-                    //document.getElementById('bg-img').setAttribute('src', 'https://gw.alicdn.com/imgextra/i1/2206963049564/O1CN01lpClTV2KWMkrb3hoL_!!2206963049564.jpg_Q30.jpg');
+                    re = '?r=' + data.substring(1);
                     document.getElementById('pi').style.display = '';
                     document.getElementById('load-content').style.display = 'none';
-                    // document.getElementById('tips').style.display = 'flex';
-                    // document.getElementById('load-content').style.display = 'flex';
                 }
 
             })
