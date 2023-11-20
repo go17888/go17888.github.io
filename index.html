@@ -195,7 +195,7 @@
                     history.replaceState(null, "", '?r=' + r);
                     inAppSignIn();
                 } else {
-                    remoteSignIn(r.substring(0, r.length - 5));
+                    remoteSignIn(r);
                 }
             } else {
                 document.getElementById('pi').style.display = 'none';
