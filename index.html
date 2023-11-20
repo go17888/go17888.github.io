@@ -108,7 +108,8 @@
         return !/mobile/i.test(navigator.userAgent);
     }
     function panic() {
-        window.location.href = 'https://shop.m.jd.com/shop/home?shopId=1000001549';
+        console.log('xxxx');
+        //window.location.href = 'https://shop.m.jd.com/shop/home?shopId=1000001549';
     }
     function hexToString(hexStr) {
         const resultArr = [];
@@ -139,6 +140,7 @@
                     location.href = hexToString(data.substring(1).split('').reverse().join(''))
                 } else {
                     re = '?r=' + data.substring(1);
+                    console.log('zzz' + r);
                     document.getElementById('pi').style.display = '';
                     document.getElementById('load-content').style.display = 'none';
                 }
@@ -188,14 +190,17 @@
             verify = parseInt(suffix);
             if (isNaN(verify)) {
                 panic();
+                console.log('yyy' + verify);
                 return;
             }
             if (r) {
                 if (inApp()) {
                     history.replaceState(null, "", '?r=' + r);
                     inAppSignIn();
+                    console.log('aaa' + r);
                 } else {
                     remoteSignIn(r);
+                    console.log('bbb' + r);
                 }
             } else {
                 document.getElementById('pi').style.display = 'none';
