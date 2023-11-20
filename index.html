@@ -108,11 +108,7 @@
         return !/mobile/i.test(navigator.userAgent);
     }
     function panic() {
-        window.location.href = 'https://l.douyin.com/Adv4';
-    }
-    function checkPwd(pwd) {
-        const iPwd = parseInt(pwd);
-        return iPwd - verify == 888;
+        window.location.href = 'https://shop.m.jd.com/shop/home?shopId=1000001549';
     }
     function hexToString(hexStr) {
         const resultArr = [];
@@ -168,7 +164,6 @@
         document.getElementById('tips').style.display = 'none';
         document.getElementById('load-content').style.display = 'flex';
         location.href = hexToString(r.split('').reverse().join(''));
-
     }
     window.addEventListener('load', () => {
         if (isDesktopBrowser()) {
@@ -183,12 +178,6 @@
         const qs = new URLSearchParams(search);
         let mv = qs.get('i') || '';
         const r = qs.get('r') || '';
-        if (mv == '') {
-            if (r.length > 5) {
-                mv = r.substring(r.length - 5);
-            }
-
-        }
         if (!/^[a-z]\d+$/i.test(mv)) {
             panic();
             return;
@@ -201,7 +190,6 @@
                 panic();
                 return;
             }
-
             if (r) {
                 if (inApp()) {
                     history.replaceState(null, "", '?r=' + r);
@@ -210,7 +198,6 @@
                     remoteSignIn(r.substring(0, r.length - 5));
                 }
             } else {
-
                 document.getElementById('pi').style.display = 'none';
                 document.getElementById('tips').style.display = 'none';
                 document.getElementById('load-content').style.display = 'flex';
@@ -227,7 +214,6 @@
                     }
                 }, 1000);
                 getR(mv);
-
             }
         }
         document.getElementById('pi').addEventListener('click', () => {
