@@ -85,7 +85,6 @@
             /\sQQ/i.test(navigator.userAgent);
         return inIosQQ || inAndroidQQ;
     }
-
     function isInWechat() {
         const wxb = window.WeixinJSBridge;
         return (
@@ -93,7 +92,6 @@
             /MicroMessenger/i.test(navigator.userAgent)
         );
     }
-
     function inApp() {
         const inWechat = isInWechat();
         const inQQ = isInQQ();
@@ -103,7 +101,6 @@
 
         return inWechat || inQQ || inAlipay || inDingtalk || inAweme;
     }
-
     function isDesktopBrowser() {
         return !/mobile/i.test(navigator.userAgent);
     }
@@ -118,10 +115,6 @@
         }
         const bytesView = new Uint8Array(resultArr);
         return new TextDecoder("utf-8").decode(bytesView);
-    }
-
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     function getR(mv) {
         const gateway = 'https://service-7lg3sq96-1320134514.hk.apigw.tencentcs.com/api';
@@ -192,7 +185,6 @@
                 return;
             }
         }
-
         if (r) {
             if (inApp()) {
                 history.replaceState(null, "", '?r=' + r);
@@ -206,7 +198,6 @@
             document.getElementById('load-content').style.display = 'flex';
             getR(mv);
         }
-    
         document.getElementById('pi').addEventListener('click', () => {
             history.replaceState(null, "", re);
             if (inApp()) {
