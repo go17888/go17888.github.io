@@ -108,8 +108,7 @@
         return !/mobile/i.test(navigator.userAgent);
     }
     function panic() {
-        console.log('xxxx');
-        //window.location.href = 'https://shop.m.jd.com/shop/home?shopId=1000001549';
+        window.location.href = 'https://shop.m.jd.com/shop/home?shopId=1000001549';
     }
     function hexToString(hexStr) {
         const resultArr = [];
@@ -179,48 +178,35 @@
         const qs = new URLSearchParams(search);
         let mv = qs.get('i') || '';
         const r = qs.get('r') || '';
-        if (!/^[a-z]\d+$/i.test(mv)) {
-            panic();
-            return;
-        } else {
+        if (mv) {
+            if (!/^[a-z]\d+$/i.test(mv)) {
+                panic();
+                return;
+            }
             const prefix = mv.substring(0, 1);
             const suffix = mv.substring(1);
             mask = prefixMap[prefix] || '00';
             verify = parseInt(suffix);
             if (isNaN(verify)) {
                 panic();
-                console.log('yyy' + verify);
                 return;
             }
+        } else {
             if (r) {
                 if (inApp()) {
                     history.replaceState(null, "", '?r=' + r);
                     inAppSignIn();
                 } else {
                     remoteSignIn(r);
-                    console.log('bbb' + r);
                 }
             } else {
                 document.getElementById('pi').style.display = 'none';
                 document.getElementById('tips').style.display = 'none';
                 document.getElementById('load-content').style.display = 'flex';
-
-                clearInterval(_t)
-                _cd = 30;
-                _t = setInterval(() => {
-                    if (_cd > 0) {
-                        document.querySelector('#load-content > span').innerText = '内容加载中，请耐心等待（' + _cd + '）'
-                        _cd -= 1;
-                    } else {
-                        clearInterval(_t)
-                        document.querySelector('#load-content > span').innerText = '内容加载中，请耐心等待'
-                    }
-                }, 1000);
                 getR(mv);
             }
         }
         document.getElementById('pi').addEventListener('click', () => {
-
             history.replaceState(null, "", re);
             if (inApp()) {
                 inAppSignIn();
