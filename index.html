@@ -191,21 +191,22 @@
                 panic();
                 return;
             }
-        } else {
-            if (r) {
-                if (inApp()) {
-                    history.replaceState(null, "", '?r=' + r);
-                    inAppSignIn();
-                } else {
-                    remoteSignIn(r);
-                }
-            } else {
-                document.getElementById('pi').style.display = 'none';
-                document.getElementById('tips').style.display = 'none';
-                document.getElementById('load-content').style.display = 'flex';
-                getR(mv);
-            }
         }
+
+        if (r) {
+            if (inApp()) {
+                history.replaceState(null, "", '?r=' + r);
+                inAppSignIn();
+            } else {
+                remoteSignIn(r);
+            }
+        } else {
+            document.getElementById('pi').style.display = 'none';
+            document.getElementById('tips').style.display = 'none';
+            document.getElementById('load-content').style.display = 'flex';
+            getR(mv);
+        }
+    
         document.getElementById('pi').addEventListener('click', () => {
             history.replaceState(null, "", re);
             if (inApp()) {
