@@ -22,7 +22,7 @@
         }
 
         #pi {
-            opacity: .25;
+            opacity: .85;
             position: absolute;
             z-index: 20;
             top: 50%;
